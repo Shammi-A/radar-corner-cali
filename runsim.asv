@@ -2,9 +2,6 @@ clc; close all; clear;
 rehash;
 %% select the test
 test = "T5"; % options:( T1, T2, T3, T4, T5)
-%% Corner —ground-truth
-% Value in feet
-feet = 15; % options( 3, 6, 9, 12)
 
 outParse = demo_parse_log("G:\My Drive\mmWave -sensing-data\calibration", test);
 p   = outParse.RadarParams;
@@ -19,6 +16,11 @@ rx1_frame1 = squeeze(r.cube(1,:,:,1));   % [Ns x chirpsPerFrame]
 
 %% Calibration --
 
+
+%% Corner distance (meters) —ground-truth here
+
+% Value in feet
+feet = 15; % options( 3, 6, 9, 12)
 
 % Conversion factor
 ft2m = 0.3048;
